@@ -18,6 +18,8 @@ import {
   Stack,
 } from '@chakra-ui/react'
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons'
+import NextLink from 'next/link'
+import { Link } from '@chakra-ui/react'
 
 interface Props {
   children: React.ReactNode
@@ -82,9 +84,36 @@ export default function Navbar() {
                 />
               </MenuButton>
               <MenuList>
-                <MenuItem>Profile</MenuItem>
-                <MenuItem>Upload</MenuItem>
-                <MenuItem>Sign Out</MenuItem>
+                <MenuItem>
+                  <Link
+                    as={NextLink}
+                    href="/dashboard"
+                    _focus={{ outline: 'none' }}
+                    _hover={{ textDecoration: 'none' }}
+                  >
+                    Dashboard
+                  </Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link
+                    as={NextLink}
+                    href="/profile"
+                    _focus={{ outline: 'none' }}
+                    _hover={{ textDecoration: 'none' }}
+                  >
+                    Profile
+                  </Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link
+                    as={NextLink}
+                    href="/upload"
+                    _focus={{ outline: 'none' }}
+                    _hover={{ textDecoration: 'none' }}
+                  >
+                    Upload
+                  </Link>
+                </MenuItem>
               </MenuList>
             </Menu>
           </Flex>

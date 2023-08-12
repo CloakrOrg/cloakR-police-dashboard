@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import { Box, Flex, Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react';
-import Navbar from '@/components/Navbar';
 import Request from '@/components/Request';
 import Response from '@/components/Response';
 
@@ -14,7 +13,6 @@ export default function Dashboard() {
 
   return (
     <>
-      <Navbar />
       <Flex height="100vh" p={3}>
         <Box p="10" width="100%">
           <Tabs isFitted size='lg' variant="enclosed">
