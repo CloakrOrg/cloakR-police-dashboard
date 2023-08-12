@@ -114,6 +114,7 @@ export default function Navbar() {
                     Upload
                   </Link>
                 </MenuItem>
+                <MenuItem>Sign out</MenuItem>
               </MenuList>
             </Menu>
           </Flex>
