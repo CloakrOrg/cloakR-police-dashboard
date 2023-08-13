@@ -20,6 +20,7 @@ import {
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons'
 import NextLink from 'next/link'
 import { Link } from '@chakra-ui/react'
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 interface Props {
   children: React.ReactNode
@@ -67,6 +68,7 @@ export default function Navbar() {
                 <NavLink key={link}>{link}</NavLink>
               ))}
             </HStack> */}
+            <ConnectButton/>
           </HStack>
           <Flex alignItems={'center'}>
             <Menu>
