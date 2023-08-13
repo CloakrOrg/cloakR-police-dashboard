@@ -2,18 +2,37 @@
 
 import { useState } from 'react';
 import { Box, Text, Button, Badge } from '@chakra-ui/react';
+import { useContractWrite } from 'wagmi';
+import ensRegistry from '../abi/ensRegistry.json';
+
+const NFT_CONTRACT_ADDRESS = "0xe8e52A45C3a7876ab66178eFE7B387E74af17Ec2";
 
 export default function Request(props: any) {
+  const { data, isLoading, isSuccess, write } = useContractWrite({
+    address: NFT_CONTRACT_ADDRESS,
+    abi: ensRegistry,
+    functionName: 'mintNFT',
+    });  
   const { id, verified } = props;
 
   const [approvalStatus, setApprovalStatus] = useState<string | null>(null);
 
   const handleApprove = () => {
     setApprovalStatus('approved');
+    handlePay();
+
   };
 
   const handleDisapprove = () => {
     setApprovalStatus('disapproved');
+  };
+
+  const handlePay = async () => {
+    await write({
+        // owner address is statically set for now. It should be fetched from the assigned auditor address
+        args: ['0x70997970C51812dc3A010C7d01b50e0d17dc79C8'],
+        value: "1000000000000000",
+      });
   };
 
   return (
